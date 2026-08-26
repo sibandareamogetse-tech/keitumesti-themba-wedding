@@ -1,0 +1,359 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #111111;
+  --soft-black: #1d1d1d;
+  --white: #faf9f6;
+  --beige: #e8dcc8;
+  --cream: #f3eee5;
+  --gold: #b69a67;
+  --muted: #6f6a62;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Montserrat", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--black);
+  background: var(--white);
+  font-family: var(--sans);
+  font-weight: 400;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.08), transparent 30%),
+    linear-gradient(135deg, #080808, #222 55%, #111);
+  color: white;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 50%;
+  width: 65vw;
+  height: 65vw;
+  max-width: 750px;
+  max-height: 750px;
+}
+
+.hero::after {
+  width: 48vw;
+  height: 48vw;
+  max-width: 550px;
+  max-height: 550px;
+  border-color: rgba(182,154,103,.4);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.5));
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  width: min(90%, 900px);
+  padding: 40px 20px;
+  animation: fadeUp 1.4s ease both;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-size: .68rem;
+  font-weight: 600;
+  margin: 0 0 18px;
+  color: var(--gold);
+}
+
+.hero .eyebrow {
+  color: #ddd0b6;
+}
+
+h1, h2, blockquote {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  line-height: .82;
+  margin: 0;
+  letter-spacing: -.035em;
+}
+
+h1 span,
+.closing h2 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-date {
+  margin: 30px 0;
+  letter-spacing: .15em;
+  font-size: .8rem;
+}
+
+.enter-btn {
+  border: 1px solid rgba(255,255,255,.55);
+  background: transparent;
+  color: white;
+  padding: 15px 30px;
+  font: 500 .68rem var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.enter-btn:hover {
+  background: white;
+  color: var(--black);
+}
+
+.section {
+  padding: 110px 7vw;
+  max-width: 1050px;
+  margin: auto;
+  text-align: center;
+}
+
+.intro {
+  padding-bottom: 80px;
+}
+
+.intro h2 {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  font-size: clamp(2.4rem, 5vw, 4.3rem);
+  line-height: .95;
+}
+
+.intro p:not(.eyebrow),
+.quote p,
+.rsvp > p:not(.eyebrow) {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.9;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.celebrations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.day-card {
+  min-height: 650px;
+  padding: 80px 9%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.day-one {
+  background: var(--black);
+  color: white;
+}
+
+.day-two {
+  background: var(--beige);
+  color: var(--black);
+}
+
+.day-number {
+  font: 500 1rem var(--serif);
+  letter-spacing: .18em;
+  margin-bottom: 30px;
+}
+
+.day-card .eyebrow {
+  color: var(--gold);
+}
+
+.day-card h2 {
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: .9;
+  margin: 0 auto 38px;
+  max-width: 430px;
+}
+
+.details {
+  line-height: 1.8;
+  font-size: .78rem;
+  letter-spacing: .08em;
+}
+
+.details p {
+  margin: 5px 0;
+}
+
+.dress-code {
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  margin: 35px auto 18px;
+  padding: 18px 10px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.dress-code span,
+.dress-code strong {
+  display: block;
+}
+
+.dress-code span {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .58rem;
+  margin-bottom: 7px;
+  opacity: .65;
+}
+
+.dress-code strong {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.small-note {
+  font-size: .68rem;
+  opacity: .55;
+  line-height: 1.6;
+}
+
+.quote {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+blockquote {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: .98;
+  margin: 0 auto 25px;
+  max-width: 800px;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.contacts a {
+  min-width: 220px;
+  padding: 22px;
+  border: 1px solid #ddd7cc;
+  color: inherit;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.contacts a:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.contacts span,
+.contacts strong {
+  display: block;
+}
+
+.contacts span {
+  font: 1.3rem var(--serif);
+}
+
+.contacts strong {
+  margin-top: 8px;
+  font-size: .72rem;
+  letter-spacing: .08em;
+}
+
+.closing {
+  max-width: none;
+  background: var(--black);
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.closing h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  margin: 0 0 20px;
+}
+
+.closing > p:last-child {
+  letter-spacing: .18em;
+  font-size: .7rem;
+  color: #ccc;
+}
+
+footer {
+  background: #080808;
+  color: #777;
+  text-align: center;
+  padding: 25px;
+  font-size: .58rem;
+  letter-spacing: .1em;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 720px) {
+  .celebrations {
+    grid-template-columns: 1fr;
+  }
+
+  .day-card {
+    min-height: 580px;
+    padding: 70px 10%;
+  }
+
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  h1 {
+    font-size: clamp(3.4rem, 17vw, 6rem);
+  }
+
+  .hero::before {
+    width: 115vw;
+    height: 115vw;
+  }
+
+  .hero::after {
+    width: 85vw;
+    height: 85vw;
+  }
+}
