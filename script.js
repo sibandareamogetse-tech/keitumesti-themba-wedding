@@ -1,64 +1,101 @@
-```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
     /*
     ==========================================
-    SIMPLE SCROLL REVEAL EFFECT
+    WEDDING COUNTDOWN
     ==========================================
+
+    Target:
+    28 November 2026
+    12:00 South African time
+
+    South Africa is UTC+2.
     */
 
-    const sections = document.querySelectorAll(
-        ".introduction, .celebration, .gifts-section, .rsvp-section"
+    const weddingDate = new Date(
+        "2026-11-28T12:00:00+02:00"
+    ).getTime();
+
+
+    const daysElement =
+        document.getElementById("days");
+
+    const hoursElement =
+        document.getElementById("hours");
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+
+        const distance =
+            weddingDate - now;
+
+
+        if (distance <= 0) {
+
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+
+            return;
+        }
+
+
+        const days = Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (distance %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+            (distance %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+            (distance %
+                (1000 * 60)
+            ) /
+            1000
+        );
+
+
+        daysElement.textContent =
+            String(days).padStart(2, "0");
+
+        hoursElement.textContent =
+            String(hours).padStart(2, "0");
+
+        minutesElement.textContent =
+            String(minutes).padStart(2, "0");
+
+        secondsElement.textContent =
+            String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+
+    setInterval(
+        updateCountdown,
+        1000
     );
-
-
-    const revealSection = () => {
-
-        sections.forEach((section) => {
-
-            const sectionTop =
-                section.getBoundingClientRect().top;
-
-            const screenHeight =
-                window.innerHeight;
-
-
-            if (sectionTop < screenHeight * 0.85) {
-
-                section.classList.add("section-visible");
-
-            }
-
-        });
-
-    };
-
-
-    revealSection();
-
-
-    window.addEventListener(
-        "scroll",
-        revealSection,
-        { passive: true }
-    );
-
-
-    /*
-    ==========================================
-    WHATSAPP BUTTON CHECK
-    ==========================================
-
-    The WhatsApp links are standard wa.me links
-    and work without a paid service.
-
-    Reamogetse:
-    https://wa.me/27812870288
-
-    Khosi:
-    https://wa.me/27612875028
-    */
 
 });
-```
-
