@@ -1,359 +1,969 @@
+```css
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-:root {
-  --black: #111111;
-  --soft-black: #1d1d1d;
-  --white: #faf9f6;
-  --beige: #e8dcc8;
-  --cream: #f3eee5;
-  --gold: #b69a67;
-  --muted: #6f6a62;
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Montserrat", Arial, sans-serif;
-}
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 
 body {
-  margin: 0;
-  color: var(--black);
-  background: var(--white);
-  font-family: var(--sans);
-  font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    background: #f8f6f1;
+    color: #1d1d1d;
+    line-height: 1.6;
 }
+
+
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+
+    --gold: #b08d57;
+    --dark-gold: #8f6f3f;
+
+    --black: #111111;
+    --soft-black: #1c1c1c;
+
+    --white: #ffffff;
+    --cream: #f7f2e8;
+    --beige: #dfd1bd;
+
+}
+
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+}
+
+
+.section-label {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+
+.small-gold-line {
+    width: 55px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.8rem auto;
+}
+
+
+.gold-line {
+    width: 90px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem auto;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
 
 .hero {
-  min-height: 100vh;
-  position: relative;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,255,255,.08), transparent 30%),
-    linear-gradient(135deg, #080808, #222 55%, #111);
-  color: white;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.68),
+            rgba(0, 0, 0, 0.85)
+        ),
+        #111111;
+
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 2rem;
 }
 
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 50%;
-  width: 65vw;
-  height: 65vw;
-  max-width: 750px;
-  max-height: 750px;
-}
-
-.hero::after {
-  width: 48vw;
-  height: 48vw;
-  max-width: 550px;
-  max-height: 550px;
-  border-color: rgba(182,154,103,.4);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.5));
-}
 
 .hero-content {
-  position: relative;
-  text-align: center;
-  width: min(90%, 900px);
-  padding: 40px 20px;
-  animation: fadeUp 1.4s ease both;
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+
+    animation: fadeUp 1.5s ease;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: .24em;
-  font-size: .68rem;
-  font-weight: 600;
-  margin: 0 0 18px;
-  color: var(--gold);
+
+.hero-intro {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    color: #d8d8d8;
 }
 
-.hero .eyebrow {
-  color: #ddd0b6;
+
+.hero h1 {
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.9;
+
+    margin: 2rem 0;
+
+    font-weight: 500;
 }
 
-h1, h2, blockquote {
-  font-family: var(--serif);
-  font-weight: 500;
+
+.hero h1 span {
+    display: block;
 }
 
-h1 {
-  font-size: clamp(4rem, 10vw, 8.5rem);
-  line-height: .82;
-  margin: 0;
-  letter-spacing: -.035em;
+
+.hero .ampersand {
+    color: var(--gold);
+    font-size: 0.55em;
+    margin: 0.3rem 0;
 }
 
-h1 span,
-.closing h2 span {
-  color: var(--gold);
-  font-style: italic;
+
+.hero-subtitle {
+    max-width: 500px;
+
+    margin: 2rem auto 3rem;
+
+    color: #d7d7d7;
+
+    font-size: 0.95rem;
+    line-height: 1.8;
 }
 
-.hero-date {
-  margin: 30px 0;
-  letter-spacing: .15em;
-  font-size: .8rem;
+
+.hero-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: var(--white);
+
+    border: 1px solid var(--gold);
+
+    padding: 1rem 2rem;
+
+    text-transform: uppercase;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+
+    transition: all 0.4s ease;
 }
 
-.enter-btn {
-  border: 1px solid rgba(255,255,255,.55);
-  background: transparent;
-  color: white;
-  padding: 15px 30px;
-  font: 500 .68rem var(--sans);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: .3s ease;
+
+.hero-button:hover {
+    background: var(--gold);
+    color: var(--black);
 }
 
-.enter-btn:hover {
-  background: white;
-  color: var(--black);
+
+/* ========================================
+   INTRODUCTION
+======================================== */
+
+.introduction {
+
+    padding: 7rem 2rem;
+
+    text-align: center;
+
+    background: var(--white);
 }
 
-.section {
-  padding: 110px 7vw;
-  max-width: 1050px;
-  margin: auto;
-  text-align: center;
+
+.introduction h2 {
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+
+    line-height: 1;
+
+    font-weight: 500;
 }
 
-.intro {
-  padding-bottom: 80px;
+
+.introduction p:last-child {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #5a5a5a;
+
+    font-size: 0.95rem;
 }
 
-.intro h2 {
-  max-width: 760px;
-  margin: 0 auto 28px;
-  font-size: clamp(2.4rem, 5vw, 4.3rem);
-  line-height: .95;
+
+/* ========================================
+   CELEBRATION SECTIONS
+======================================== */
+
+.celebration {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 7rem 2rem;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-.intro p:not(.eyebrow),
-.quote p,
-.rsvp > p:not(.eyebrow) {
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.9;
-  color: var(--muted);
-  font-size: .9rem;
+
+.celebration-content {
+
+    max-width: 850px;
+
+    width: 100%;
+
+    position: relative;
+
+    z-index: 2;
 }
 
-.celebrations {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.day-card {
-  min-height: 650px;
-  padding: 80px 9%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.day-one {
-  background: var(--black);
-  color: white;
-}
-
-.day-two {
-  background: var(--beige);
-  color: var(--black);
-}
 
 .day-number {
-  font: 500 1rem var(--serif);
-  letter-spacing: .18em;
-  margin-bottom: 30px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(7rem, 18vw, 13rem);
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -5rem;
+
+    transform: translateX(-50%);
+
+    opacity: 0.06;
+
+    pointer-events: none;
 }
 
-.day-card .eyebrow {
-  color: var(--gold);
+
+/* ========================================
+   DAY ONE
+   BLACK + WHITE + GOLD
+======================================== */
+
+.day-one {
+
+    background: var(--black);
+
+    color: var(--white);
 }
 
-.day-card h2 {
-  font-size: clamp(2.6rem, 5vw, 4.5rem);
-  line-height: .9;
-  margin: 0 auto 38px;
-  max-width: 430px;
+
+.day-one .section-label {
+
+    color: #d6d6d6;
 }
 
-.details {
-  line-height: 1.8;
-  font-size: .78rem;
-  letter-spacing: .08em;
+
+.day-one h2 {
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+
+    line-height: 0.85;
+
+    letter-spacing: 2px;
 }
 
-.details p {
-  margin: 5px 0;
+
+.day-one .event-date {
+
+    color: var(--white);
 }
 
-.dress-code {
-  border-top: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  margin: 35px auto 18px;
-  padding: 18px 10px;
-  width: 100%;
-  max-width: 360px;
+
+.day-one .detail-item {
+
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
-.dress-code span,
-.dress-code strong {
-  display: block;
+
+.day-one .detail-item i {
+
+    color: var(--gold);
 }
 
-.dress-code span {
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: .58rem;
-  margin-bottom: 7px;
-  opacity: .65;
+
+.day-one .detail-label {
+
+    color: var(--gold);
 }
 
-.dress-code strong {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  font-weight: 500;
+
+.day-one .bible-verse {
+
+    border-color: rgba(176, 141, 87, 0.45);
 }
 
-.small-note {
-  font-size: .68rem;
-  opacity: .55;
-  line-height: 1.6;
+
+/* ========================================
+   DAY TWO
+   BEIGE + CREAM + GOLD
+======================================== */
+
+.day-two {
+
+    background: var(--cream);
+
+    color: #342d26;
 }
 
-.quote {
-  padding-top: 130px;
-  padding-bottom: 130px;
+
+.day-two h2 {
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+
+    line-height: 0.85;
+
+    letter-spacing: 2px;
 }
 
-.ornament {
-  color: var(--gold);
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+
+.day-two .section-label {
+
+    color: #6e5a45;
 }
 
-blockquote {
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: .98;
-  margin: 0 auto 25px;
-  max-width: 800px;
+
+.day-two .detail-item {
+
+    border-color: rgba(99, 79, 57, 0.18);
 }
 
-.contacts {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 35px;
+
+.day-two .detail-item i {
+
+    color: var(--dark-gold);
 }
 
-.contacts a {
-  min-width: 220px;
-  padding: 22px;
-  border: 1px solid #ddd7cc;
-  color: inherit;
-  text-decoration: none;
-  transition: .3s;
+
+.day-two .detail-label {
+
+    color: var(--dark-gold);
 }
 
-.contacts a:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold);
+
+.day-two .bible-verse {
+
+    border-color: rgba(176, 141, 87, 0.55);
 }
 
-.contacts span,
-.contacts strong {
-  display: block;
+
+/* ========================================
+   EVENT DATE
+======================================== */
+
+.event-date {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin: 3rem 0;
+
+    font-family: "Cormorant Garamond", serif;
 }
 
-.contacts span {
-  font: 1.3rem var(--serif);
+
+.event-date span {
+
+    font-size: clamp(5rem, 10vw, 8rem);
+
+    line-height: 1;
+
+    color: var(--gold);
 }
 
-.contacts strong {
-  margin-top: 8px;
-  font-size: .72rem;
-  letter-spacing: .08em;
+
+.event-date p {
+
+    text-align: left;
+
+    font-size: 1rem;
+
+    letter-spacing: 2px;
+
+    line-height: 1.4;
 }
 
-.closing {
-  max-width: none;
-  background: var(--black);
-  color: white;
-  padding-top: 100px;
-  padding-bottom: 100px;
+
+/* ========================================
+   EVENT DETAILS
+======================================== */
+
+.event-details {
+
+    max-width: 650px;
+
+    margin: 0 auto;
 }
 
-.closing h2 {
-  font-size: clamp(3rem, 7vw, 6rem);
-  margin: 0 0 20px;
+
+.detail-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    text-align: left;
+
+    gap: 1.2rem;
+
+    padding: 1.5rem 0;
+
+    border-bottom: 1px solid;
 }
 
-.closing > p:last-child {
-  letter-spacing: .18em;
-  font-size: .7rem;
-  color: #ccc;
+
+.detail-item i {
+
+    font-size: 1.1rem;
+
+    margin-top: 0.25rem;
+
+    width: 25px;
 }
 
-footer {
-  background: #080808;
-  color: #777;
-  text-align: center;
-  padding: 25px;
-  font-size: .58rem;
-  letter-spacing: .1em;
+
+.detail-item div {
+
+    flex: 1;
 }
+
+
+.detail-label {
+
+    font-size: 0.65rem;
+
+    letter-spacing: 3px;
+
+    display: block;
+
+    margin-bottom: 0.4rem;
+}
+
+
+.detail-item p {
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   BIBLE VERSES
+======================================== */
+
+.bible-verse {
+
+    max-width: 700px;
+
+    margin: 5rem auto 0;
+
+    padding: 3rem 2rem;
+
+    border-top: 1px solid;
+
+    border-bottom: 1px solid;
+}
+
+
+.quote-icon {
+
+    color: var(--gold);
+
+    font-size: 1.4rem;
+
+    margin-bottom: 1.5rem;
+}
+
+
+.bible-verse p {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+
+    font-style: italic;
+
+    line-height: 1.45;
+}
+
+
+.bible-verse span {
+
+    display: block;
+
+    margin-top: 1.5rem;
+
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+}
+
+
+/* ========================================
+   GIFTS SECTION
+======================================== */
+
+.gifts-section {
+
+    padding: 7rem 2rem;
+
+    background: var(--white);
+
+    text-align: center;
+}
+
+
+.gifts-content {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+
+.gifts-section h2 {
+
+    font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+
+.gifts-message {
+
+    max-width: 600px;
+
+    margin: 1.2rem auto;
+
+    color: #5a5a5a;
+
+    line-height: 1.8;
+}
+
+
+.gift-options {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 1.5rem;
+
+    margin-top: 3rem;
+
+    flex-wrap: wrap;
+}
+
+
+.gift-option {
+
+    min-width: 220px;
+
+    padding: 2rem;
+
+    border: 1px solid rgba(176, 141, 87, 0.45);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    transition: transform 0.3s ease;
+}
+
+
+.gift-option:hover {
+
+    transform: translateY(-5px);
+}
+
+
+.gift-option i {
+
+    color: var(--gold);
+
+    font-size: 1.5rem;
+}
+
+
+.gift-option span {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.6rem;
+}
+
+
+/* ========================================
+   RSVP SECTION
+======================================== */
+
+.rsvp-section {
+
+    padding: 7rem 2rem;
+
+    background: #161616;
+
+    color: var(--white);
+
+    text-align: center;
+}
+
+
+.rsvp-content {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+.rsvp-section .section-label {
+
+    color: #d2d2d2;
+}
+
+
+.rsvp-section h2 {
+
+    font-size: clamp(3rem, 7vw, 5.5rem);
+
+    line-height: 1;
+}
+
+
+.rsvp-intro {
+
+    color: #d0d0d0;
+
+    margin: 0 auto 3rem;
+
+    max-width: 600px;
+}
+
+
+.rsvp-contacts {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+}
+
+
+.contact-card {
+
+    padding: 3rem 2rem;
+
+    border: 1px solid rgba(176, 141, 87, 0.4);
+}
+
+
+.whatsapp-large-icon {
+
+    font-size: 2rem;
+
+    color: var(--gold);
+
+    margin-bottom: 1.2rem;
+}
+
+
+.contact-card h3 {
+
+    font-size: 2rem;
+
+    font-weight: 500;
+
+    margin-bottom: 0.5rem;
+}
+
+
+.contact-card p {
+
+    color: #cfcfcf;
+
+    margin-bottom: 2rem;
+}
+
+
+.whatsapp-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    padding: 1rem 1.4rem;
+
+    border: 1px solid var(--gold);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 1.5px;
+
+    transition: all 0.3s ease;
+}
+
+
+.whatsapp-button:hover {
+
+    background: var(--gold);
+
+    color: var(--black);
+}
+
+
+/* ========================================
+   CLOSING SECTION
+======================================== */
+
+.closing-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: var(--cream);
+
+    padding: 2rem;
+}
+
+
+.closing-content {
+
+    animation: fadeUp 1.5s ease;
+}
+
+
+.closing-section h2 {
+
+    font-size: clamp(4rem, 11vw, 9rem);
+
+    line-height: 0.9;
+
+    font-weight: 500;
+
+    margin: 2rem 0;
+}
+
+
+.closing-section h2 span {
+
+    display: block;
+
+    font-size: 0.55em;
+
+    color: var(--gold);
+
+    margin: 0.3rem 0;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
 }
 
-@media (max-width: 720px) {
-  .celebrations {
-    grid-template-columns: 1fr;
-  }
 
-  .day-card {
-    min-height: 580px;
-    padding: 70px 10%;
-  }
+/* ========================================
+   MOBILE
+======================================== */
 
-  .section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
+@media (max-width: 768px) {
 
-  h1 {
-    font-size: clamp(3.4rem, 17vw, 6rem);
-  }
+    .hero {
 
-  .hero::before {
-    width: 115vw;
-    height: 115vw;
-  }
+        min-height: 100svh;
+    }
 
-  .hero::after {
-    width: 85vw;
-    height: 85vw;
-  }
+
+    .celebration {
+
+        padding: 6rem 1.5rem;
+    }
+
+
+    .introduction {
+
+        padding: 6rem 1.5rem;
+    }
+
+
+    .gifts-section {
+
+        padding: 6rem 1.5rem;
+    }
+
+
+    .rsvp-section {
+
+        padding: 6rem 1.5rem;
+    }
+
+
+    .rsvp-contacts {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .event-date {
+
+        margin: 2.5rem 0;
+    }
+
+
+    .bible-verse {
+
+        margin-top: 4rem;
+
+        padding: 2.5rem 1rem;
+    }
+
+
+    .detail-item {
+
+        gap: 0.8rem;
+    }
+
+
+    .gift-option {
+
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .hero-intro,
+    .section-label {
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .hero-button {
+
+        padding: 0.9rem 1.5rem;
+    }
+
+
+    .event-date p {
+
+        font-size: 0.8rem;
+    }
+
+
+    .contact-card {
+
+        padding: 2.5rem 1.2rem;
+    }
+
+}
+```
+/* ========================================
+   SCROLL REVEAL
+======================================== */
+
+.introduction,
+.celebration,
+.gifts-section,
+.rsvp-section {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+
+.section-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
