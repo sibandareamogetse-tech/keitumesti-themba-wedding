@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     Target:
     28 November 2026
-    12:00 South African time
+    11:00 South African time
 
     South Africa is UTC+2.
     */
 
     const weddingDate = new Date(
-        "2026-11-28T12:00:00+02:00"
+        "2026-11-28T11:00:00+02:00"
     ).getTime();
 
 
@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (1000 * 60 * 60 * 24)
         );
 
+
         const hours = Math.floor(
             (distance %
                 (1000 * 60 * 60 * 24)
@@ -61,12 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
             (1000 * 60 * 60)
         );
 
+
         const minutes = Math.floor(
             (distance %
                 (1000 * 60 * 60)
             ) /
             (1000 * 60)
         );
+
 
         const seconds = Math.floor(
             (distance %
