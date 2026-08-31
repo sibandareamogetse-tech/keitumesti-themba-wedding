@@ -1,13 +1,34 @@
+/* =========================================================
+   THEMBA & KEITUMETSI WEDDING WEBSITE
+   MAIN STYLESHEET
+   ========================================================= */
+
+/* -----------------------------
+   COLOURS
+----------------------------- */
+
 :root {
     --gold: #b08d57;
     --dark-gold: #8d6d3d;
+
     --black: #090909;
     --soft-black: #171717;
+
     --white: #ffffff;
+
     --cream: #f5efe4;
+    --light-cream: #faf6ee;
     --beige: #d8c7ae;
+
     --brown: #5c4838;
+    --text: #24201c;
+    --muted: #625c55;
 }
+
+
+/* -----------------------------
+   RESET
+----------------------------- */
 
 * {
     margin: 0;
@@ -22,8 +43,12 @@ html {
 body {
     font-family: "Montserrat", sans-serif;
     background: var(--cream);
-    color: #24201c;
+    color: var(--text);
     line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
 }
 
 h1,
@@ -32,6 +57,15 @@ h3 {
     font-family: "Cormorant Garamond", serif;
     font-weight: 500;
 }
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   GENERAL TYPOGRAPHY
+   ========================================================= */
 
 .section-label {
     font-size: 0.7rem;
@@ -55,10 +89,14 @@ h3 {
     width: 90px;
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO / FIRST SLIDE
+   ========================================================= */
 
 .hero {
     min-height: 100svh;
+
     position: relative;
 
     display: flex;
@@ -83,9 +121,9 @@ h3 {
     background:
         linear-gradient(
             180deg,
-            rgba(0, 0, 0, 0.72) 0%,
-            rgba(0, 0, 0, 0.30) 42%,
-            rgba(0, 0, 0, 0.82) 100%
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.30) 45%,
+            rgba(0, 0, 0, 0.85) 100%
         );
 }
 
@@ -93,8 +131,7 @@ h3 {
     position: absolute;
     inset: 20px;
 
-    border: 1px solid
-        rgba(176, 141, 87, 0.65);
+    border: 1px solid rgba(176, 141, 87, 0.65);
 
     pointer-events: none;
 }
@@ -103,26 +140,25 @@ h3 {
     position: relative;
     z-index: 2;
 
-    max-width: 850px;
+    width: 100%;
+    max-width: 900px;
 
-    animation:
-        fadeUp 1.5s ease both;
+    animation: fadeUp 1.5s ease both;
 }
 
 .hero-intro {
     text-transform: uppercase;
+
     letter-spacing: 4px;
+
     font-size: 0.7rem;
 }
 
 .hero h1 {
-    font-size: clamp(
-        4rem,
-        10vw,
-        8rem
-    );
+    font-size: clamp(4rem, 10vw, 8rem);
 
     line-height: 0.9;
+
     margin: 2rem 0;
 }
 
@@ -132,18 +168,19 @@ h3 {
 
 .hero .ampersand {
     color: var(--gold);
+
     font-size: 0.55em;
+
     margin: 0.3rem 0;
 }
 
 .hero-subtitle {
-    max-width: 500px;
+    max-width: 520px;
 
-    margin:
-        2rem auto
-        3rem;
+    margin: 2rem auto 3rem;
 
     font-size: 0.95rem;
+
     line-height: 1.8;
 }
 
@@ -154,6 +191,7 @@ h3 {
 
     align-items: center;
     justify-content: center;
+
     gap: 0.7rem;
 
     text-decoration: none;
@@ -161,11 +199,10 @@ h3 {
     text-transform: uppercase;
 
     font-size: 0.68rem;
+
     letter-spacing: 1.8px;
 
-    padding:
-        1rem
-        1.8rem;
+    padding: 1rem 1.8rem;
 
     transition:
         transform 0.3s ease,
@@ -176,54 +213,54 @@ h3 {
 .hero-button {
     color: var(--white);
 
-    border:
-        1px solid
-        var(--gold);
-}
-
-.hero-button:hover,
-.directions-button:hover,
-.whatsapp-button:hover {
-    transform: translateY(-3px);
+    border: 1px solid var(--gold);
 }
 
 .hero-button:hover {
     background: var(--gold);
+
     color: var(--black);
+
+    transform: translateY(-3px);
 }
 
 .scroll-indicator {
     position: absolute;
+
     z-index: 2;
 
     bottom: 30px;
+
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     gap: 0.6rem;
 
     font-size: 0.55rem;
+
     letter-spacing: 2px;
 }
 
 .scroll-indicator i {
     color: var(--gold);
 
-    animation:
-        bounce 2s infinite;
+    animation: bounce 2s infinite;
 }
 
-/* COUNTDOWN */
+
+/* =========================================================
+   COUNTDOWN / SECOND SLIDE
+   ========================================================= */
 
 .countdown-section {
-    padding:
-        7rem 2rem;
+    padding: 7rem 2rem;
 
     text-align: center;
 
@@ -231,49 +268,37 @@ h3 {
 }
 
 .countdown-section h2 {
-    font-size: clamp(
-        3rem,
-        7vw,
-        5.5rem
-    );
+    font-size: clamp(3rem, 7vw, 5.5rem);
+
+    line-height: 1;
 }
 
 .countdown-grid {
     max-width: 900px;
 
-    margin:
-        3.5rem auto
-        1.5rem;
+    margin: 3.5rem auto 1.5rem;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 1rem;
 }
 
 .countdown-item {
-    padding:
-        2rem 1rem;
+    padding: 2rem 1rem;
 
-    border:
-        1px solid
-        rgba(176, 141, 87, 0.45);
+    border: 1px solid rgba(176, 141, 87, 0.45);
+
+    background: var(--light-cream);
 }
 
 .countdown-item span {
     display: block;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(
-        3rem,
-        6vw,
-        5rem
-    );
+    font-size: clamp(3rem, 6vw, 5rem);
 
     line-height: 1;
 
@@ -298,24 +323,25 @@ h3 {
     color: #777;
 }
 
-/* INTRODUCTION */
+
+/* =========================================================
+   THIRD SLIDE — OUR STORY / PHOTOS
+   ========================================================= */
 
 .introduction {
-    padding:
-        7rem 2rem;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    align-items: center;
-
-    gap: 5rem;
+    padding: 7rem 2rem;
 
     max-width: 1250px;
 
     margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 5rem;
 }
 
 .introduction-text {
@@ -323,16 +349,11 @@ h3 {
 }
 
 .introduction-text .small-gold-line {
-    margin:
-        1.8rem 0;
+    margin: 1.8rem 0;
 }
 
 .introduction h2 {
-    font-size: clamp(
-        3rem,
-        6vw,
-        5.5rem
-    );
+    font-size: clamp(3rem, 6vw, 5.5rem);
 
     line-height: 0.95;
 }
@@ -340,8 +361,13 @@ h3 {
 .introduction-text > p:last-child {
     max-width: 520px;
 
-    color: #625c55;
+    color: var(--muted);
 }
+
+
+/* -----------------------------
+   MAIN COUPLE PHOTO
+----------------------------- */
 
 .couple-portrait-wrapper {
     position: relative;
@@ -354,12 +380,11 @@ h3 {
 
     inset: 0;
 
-    border:
-        1px solid
-        var(--gold);
+    border: 1px solid var(--gold);
 
-    transform:
-        rotate(2deg);
+    transform: rotate(2deg);
+
+    pointer-events: none;
 }
 
 .couple-portrait {
@@ -376,58 +401,102 @@ h3 {
         saturate(0.9);
 }
 
-/* CELEBRATIONS */
+
+/* -----------------------------
+   OPTIONAL PHOTO GALLERY
+   For the extra two pictures
+----------------------------- */
+
+.photo-gallery {
+    width: 100%;
+
+    margin-top: 3rem;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1rem;
+}
+
+.photo-gallery img {
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border: 1px solid rgba(176, 141, 87, 0.45);
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.02);
+
+    filter: brightness(1.03);
+}
+
+
+/* =========================================================
+   CELEBRATION SECTIONS
+   ========================================================= */
 
 .celebration {
     min-height: 100svh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     position: relative;
 
     overflow: hidden;
 
-    padding:
-        7rem 2rem;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 7rem 2rem;
 
     text-align: center;
 }
 
 .celebration-content {
-    max-width: 850px;
+    position: relative;
+
+    z-index: 2;
+
     width: 100%;
 
-    position: relative;
-    z-index: 2;
+    max-width: 850px;
 }
 
 .day-number {
     position: absolute;
 
-    left: 50%;
     top: -5rem;
 
-    transform:
-        translateX(-50%);
+    left: 50%;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    transform: translateX(-50%);
 
-    font-size: clamp(
-        7rem,
-        18vw,
-        13rem
-    );
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(7rem, 18vw, 13rem);
 
     opacity: 0.06;
 
     pointer-events: none;
 }
 
-/* DAY ONE */
+
+/* =========================================================
+   DAY ONE
+   LOBOLA CELEBRATION
+   ========================================================= */
 
 .day-one {
     color: var(--white);
@@ -444,6 +513,7 @@ h3 {
     position: absolute;
 
     width: 170px;
+
     height: 100%;
 
     opacity: 0.14;
@@ -465,8 +535,7 @@ h3 {
 .pattern-right {
     right: 0;
 
-    transform:
-        scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .day-one .section-label {
@@ -475,19 +544,15 @@ h3 {
 
 .day-one h2,
 .day-two h2 {
-    font-size: clamp(
-        3.5rem,
-        8vw,
-        7rem
-    );
+    font-size: clamp(3.5rem, 8vw, 7rem);
 
     line-height: 0.85;
+
     letter-spacing: 2px;
 }
 
 .day-one .detail-item {
-    border-color:
-        rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 .day-one .detail-item i,
@@ -496,8 +561,7 @@ h3 {
 }
 
 .day-one .bible-verse {
-    border-color:
-        rgba(176, 141, 87, 0.45);
+    border-color: rgba(176, 141, 87, 0.45);
 }
 
 .day-one-button {
@@ -505,17 +569,22 @@ h3 {
 
     color: var(--white);
 
-    border:
-        1px solid
-        var(--gold);
+    border: 1px solid var(--gold);
 }
 
 .day-one-button:hover {
     background: var(--gold);
+
     color: var(--black);
+
+    transform: translateY(-3px);
 }
 
-/* DAY TWO */
+
+/* =========================================================
+   DAY TWO
+   LOBOLA CELEBRATION
+   ========================================================= */
 
 .day-two {
     color: #3f3328;
@@ -533,7 +602,9 @@ h3 {
     position: absolute;
 
     left: 0;
+
     width: 100%;
+
     height: 70px;
 
     opacity: 0.45;
@@ -566,8 +637,7 @@ h3 {
 }
 
 .day-two .detail-item {
-    border-color:
-        rgba(99, 79, 57, 0.18);
+    border-color: rgba(99, 79, 57, 0.18);
 }
 
 .day-two .detail-item i,
@@ -576,8 +646,7 @@ h3 {
 }
 
 .day-two .bible-verse {
-    border-color:
-        rgba(176, 141, 87, 0.55);
+    border-color: rgba(176, 141, 87, 0.55);
 }
 
 .day-two-button {
@@ -585,40 +654,38 @@ h3 {
 
     color: #3f3328;
 
-    border:
-        1px solid
-        var(--dark-gold);
+    border: 1px solid var(--dark-gold);
 }
 
 .day-two-button:hover {
     background: var(--dark-gold);
+
     color: var(--white);
+
+    transform: translateY(-3px);
 }
 
-/* EVENT DETAILS */
+
+/* =========================================================
+   EVENT DATES
+   ========================================================= */
 
 .event-date {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 1rem;
 
-    margin:
-        3rem 0;
+    margin: 3rem 0;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family: "Cormorant Garamond", serif;
 }
 
 .event-date span {
-    font-size: clamp(
-        5rem,
-        10vw,
-        8rem
-    );
+    font-size: clamp(5rem, 10vw, 8rem);
 
     line-height: 1;
 
@@ -635,6 +702,11 @@ h3 {
     line-height: 1.4;
 }
 
+
+/* =========================================================
+   EVENT DETAILS
+   ========================================================= */
+
 .event-details {
     max-width: 650px;
 
@@ -646,15 +718,13 @@ h3 {
 
     align-items: flex-start;
 
-    text-align: left;
-
     gap: 1.2rem;
 
-    padding:
-        1.5rem 0;
+    padding: 1.5rem 0;
 
-    border-bottom:
-        1px solid;
+    text-align: left;
+
+    border-bottom: 1px solid;
 }
 
 .detail-item i {
@@ -683,22 +753,21 @@ h3 {
     font-size: 0.95rem;
 }
 
-/* BIBLE VERSES */
+
+/* =========================================================
+   BIBLE VERSES
+   ========================================================= */
 
 .bible-verse {
     max-width: 700px;
 
-    margin:
-        5rem auto 0;
+    margin: 5rem auto 0;
 
-    padding:
-        3rem 2rem;
+    padding: 3rem 2rem;
 
-    border-top:
-        1px solid;
+    border-top: 1px solid;
 
-    border-bottom:
-        1px solid;
+    border-bottom: 1px solid;
 }
 
 .quote-icon {
@@ -710,15 +779,9 @@ h3 {
 }
 
 .bible-verse p {
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(
-        1.5rem,
-        3vw,
-        2.2rem
-    );
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
 
     font-style: italic;
 
@@ -737,11 +800,13 @@ h3 {
     letter-spacing: 3px;
 }
 
-/* GIFTS */
+
+/* =========================================================
+   GIFTS
+   ========================================================= */
 
 .gifts-section {
-    padding:
-        7rem 2rem;
+    padding: 7rem 2rem;
 
     text-align: center;
 
@@ -755,18 +820,13 @@ h3 {
 }
 
 .gifts-section h2 {
-    font-size: clamp(
-        3rem,
-        7vw,
-        5.5rem
-    );
+    font-size: clamp(3rem, 7vw, 5.5rem);
 }
 
 .gifts-message {
     max-width: 600px;
 
-    margin:
-        1.2rem auto;
+    margin: 1.2rem auto;
 
     color: #5a5a5a;
 }
@@ -789,23 +849,22 @@ h3 {
     padding: 2rem;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
 
     gap: 1rem;
 
-    border:
-        1px solid
-        rgba(176, 141, 87, 0.45);
+    border: 1px solid rgba(176, 141, 87, 0.45);
 
-    transition:
-        transform 0.3s ease;
+    background: var(--light-cream);
+
+    transition: transform 0.3s ease;
 }
 
 .gift-option:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .gift-option i {
@@ -815,18 +874,18 @@ h3 {
 }
 
 .gift-option span {
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family: "Cormorant Garamond", serif;
 
     font-size: 1.6rem;
 }
 
-/* RSVP */
+
+/* =========================================================
+   RSVP
+   ========================================================= */
 
 .rsvp-section {
-    padding:
-        7rem 2rem;
+    padding: 7rem 2rem;
 
     background:
         linear-gradient(
@@ -851,11 +910,7 @@ h3 {
 }
 
 .rsvp-section h2 {
-    font-size: clamp(
-        3rem,
-        7vw,
-        5.5rem
-    );
+    font-size: clamp(3rem, 7vw, 5.5rem);
 
     line-height: 1;
 }
@@ -863,9 +918,7 @@ h3 {
 .rsvp-intro {
     max-width: 600px;
 
-    margin:
-        0 auto
-        3rem;
+    margin: 0 auto 3rem;
 
     color: #d0d0d0;
 }
@@ -873,19 +926,17 @@ h3 {
 .rsvp-contacts {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 1.5rem;
 }
 
 .contact-card {
-    padding:
-        3rem 2rem;
+    padding: 3rem 2rem;
 
-    border:
-        1px solid
-        rgba(176, 141, 87, 0.4);
+    border: 1px solid rgba(176, 141, 87, 0.4);
+
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .whatsapp-large-icon {
@@ -913,17 +964,21 @@ h3 {
 
     color: var(--white);
 
-    border:
-        1px solid
-        var(--gold);
+    border: 1px solid var(--gold);
 }
 
 .whatsapp-button:hover {
     background: var(--gold);
+
     color: var(--black);
+
+    transform: translateY(-3px);
 }
 
-/* CLOSING */
+
+/* =========================================================
+   CLOSING / LAST SLIDE
+   ========================================================= */
 
 .closing-section {
     min-height: 100svh;
@@ -931,6 +986,7 @@ h3 {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 2rem;
@@ -946,16 +1002,11 @@ h3 {
 }
 
 .closing-section h2 {
-    font-size: clamp(
-        4rem,
-        11vw,
-        9rem
-    );
+    font-size: clamp(4rem, 11vw, 9rem);
 
     line-height: 0.9;
 
-    margin:
-        2rem 0;
+    margin: 2rem 0;
 }
 
 .closing-section h2 span {
@@ -968,38 +1019,42 @@ h3 {
     color: var(--gold);
 }
 
-/* ANIMATIONS */
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 
 @keyframes fadeUp {
+
     from {
         opacity: 0;
 
-        transform:
-            translateY(30px);
+        transform: translateY(30px);
     }
 
     to {
         opacity: 1;
 
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes bounce {
+
     0%,
     100% {
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(8px);
+        transform: translateY(8px);
     }
 }
 
-/* MOBILE */
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 850px) {
 
@@ -1014,8 +1069,12 @@ h3 {
     }
 
     .introduction-text .small-gold-line {
-        margin:
-            1.8rem auto;
+        margin: 1.8rem auto;
+    }
+
+    .introduction-text > p:last-child {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .couple-portrait-wrapper {
@@ -1027,20 +1086,30 @@ h3 {
     }
 
     .countdown-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .rsvp-contacts {
         grid-template-columns: 1fr;
     }
+
+    .photo-gallery {
+        max-width: 700px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
     .hero {
-        background-position:
-            center center;
+        background-position: center center;
     }
 
     .hero-frame {
@@ -1048,11 +1117,11 @@ h3 {
     }
 
     .hero h1 {
-        font-size: clamp(
-            4rem,
-            18vw,
-            6rem
-        );
+        font-size: clamp(4rem, 18vw, 6rem);
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
     }
 
     .traditional-pattern {
@@ -1060,31 +1129,54 @@ h3 {
     }
 
     .celebration {
-        padding:
-            6rem 1.4rem;
+        padding: 6rem 1.4rem;
     }
 
     .introduction,
     .countdown-section,
     .gifts-section,
     .rsvp-section {
-        padding:
-            5.5rem 1.4rem;
+        padding: 5.5rem 1.4rem;
     }
 
     .countdown-item {
-        padding:
-            1.5rem 0.5rem;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .countdown-item span {
+        font-size: 3rem;
+    }
+
+    .event-date {
+        margin: 2.5rem 0;
+    }
+
+    .event-date span {
+        font-size: 5rem;
+    }
+
+    .event-date p {
+        font-size: 0.8rem;
+    }
+
+    .detail-item {
+        gap: 0.8rem;
+    }
+
+    .detail-item p {
+        font-size: 0.85rem;
     }
 
     .bible-verse {
-        padding:
-            2.5rem 1rem;
+        padding: 2.5rem 1rem;
+    }
+
+    .bible-verse p {
+        font-size: 1.5rem;
     }
 
     .contact-card {
-        padding:
-            2.5rem 1.2rem;
+        padding: 2.5rem 1.2rem;
     }
 
     .whatsapp-button {
@@ -1101,5 +1193,58 @@ h3 {
         bottom: 22px;
 
         font-size: 0.48rem;
+    }
+
+    /* Mobile photo gallery */
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+    }
+
+    .photo-gallery img {
+        height: 350px;
+    }
+
+    .gift-option {
+        width: 100%;
+
+        min-width: 0;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-intro {
+        font-size: 0.6rem;
+
+        letter-spacing: 3px;
+    }
+
+    .countdown-grid {
+        gap: 0.5rem;
+    }
+
+    .countdown-item span {
+        font-size: 2.5rem;
+    }
+
+    .day-one h2,
+    .day-two h2 {
+        font-size: 3rem;
+    }
+
+    .event-date span {
+        font-size: 4rem;
     }
 }
